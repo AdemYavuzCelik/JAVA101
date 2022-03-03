@@ -6,25 +6,22 @@ import java.util.Scanner;
 public class Baslangic {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int n, arti = 0, eksi = 0, k;
-        System.out.print("sayi giriniz: ");
-        n = scanner.nextInt();
-        for (int i = 0; i < (2 * n) - 1; i++) {
-            k = (i - n) + 1;
-            for (int j = 1; j <= (2 * n) - 1; j++) {
-                if (i < n) {
-                    if (j >= n - i && j <= n + i)
-                        System.out.print("*");
-                    else
-                        System.out.print(" ");
-                } else {
-                    if (j > k && j < (2 * n) - k)
-                        System.out.print("*");
-                    else
-                        System.out.print(" ");
-                }
-            }
-            System.out.println();
+        int sinir, enBuyuk = -1, sayi, enKucuk = -1;
+        System.out.print("sinir: ");
+        sinir = scanner.nextInt();
+        System.out.print("1. sayiyi giriniz: ");
+        sayi = scanner.nextInt();
+        enBuyuk = sayi;
+        enKucuk =sayi;
+        for (int i = 1; i < sinir; i++) {
+            System.out.print((i+1)+". sayiyi giriniz: ");
+            sayi = scanner.nextInt();
+            if (sayi>enBuyuk)
+                enBuyuk = sayi;
+            if (sayi<enKucuk)
+                enKucuk =sayi;
         }
+        System.out.println("en buyuk: "+enBuyuk);
+        System.out.println("en kucuk: "+enKucuk);
     }
 }
